@@ -17,7 +17,6 @@ public class MorningRushTester
 	{
 		final int initialGulps = 5;
 		
-		JFrame frame = new JFrame();
 		
 		
 		class DrinkCoffee implements ActionListener
@@ -50,7 +49,8 @@ public class MorningRushTester
 		DrinkCoffee dc = new DrinkCoffee(5);
 		Timer t = new Timer(DELAY, dc);
 		t.start();
-		
+		JOptionPane.showMessageDialog(null, "Just about to go to school");
+		System.out.println("Just about to go to school");
 		
 		System.exit(0);
 	}
