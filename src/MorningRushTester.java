@@ -1,6 +1,7 @@
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
 public class MorningRushTester
@@ -14,9 +15,15 @@ public class MorningRushTester
 	
 	public static void main (String args[])
 	{
+		final int initialGulps = 5;
+		
+		JFrame frame = new JFrame();
+		
+		
 		class DrinkCoffee implements ActionListener
 		{
 			private int gulps;
+			
 			
 			public DrinkCoffee(int inGulps)
 			{
@@ -29,12 +36,14 @@ public class MorningRushTester
 				if(gulps > 0)
 				{
 					System.out.println(gulps);
-					--gulps;
 				}
 				else if(gulps == 0)
 				{
 					System.out.println("Go to school");
+					JOptionPane.showMessageDialog(null, "Make another?");
+					gulps = initialGulps;
 				}
+				--gulps;
 			}
 		}
 		
@@ -42,7 +51,7 @@ public class MorningRushTester
 		Timer t = new Timer(DELAY, dc);
 		t.start();
 		
-		JOptionPane.showMessageDialog(null, "Make another?");
+		
 		System.exit(0);
 	}
 }
